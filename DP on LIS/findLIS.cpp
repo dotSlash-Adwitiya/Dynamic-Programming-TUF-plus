@@ -83,3 +83,21 @@ int LIS(vector<int>& nums) {
 
     return lis.size();
 }  
+
+// * Time Complexity: O(n^2)
+// * LIS using specialized Tabulation
+// * Space Complexity: O(n)
+int LIS(vector<int>& nums) {
+    int n = nums.size();
+    // vector<int> lis;
+    vector<int> dp(n, 1);
+    int maxi = 1;
+    for(int i = 0; i < n; i++){
+        for(int prev = 0; prev <= i - 1; prev++){
+            if(nums[prev] < nums[i])
+                dp[i] = max(1 + dp[prev], dp[i]);   
+        }
+        maxi = max(maxi, dp[i]);
+    }
+    return maxi;
+} 
