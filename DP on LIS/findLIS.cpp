@@ -87,6 +87,7 @@ int LIS(vector<int>& nums) {
 // * Time Complexity: O(n^2)
 // * LIS using specialized Tabulation
 // * Space Complexity: O(n)
+// * dp[i] -> represents the length of LIS ending at index i
 int LIS(vector<int>& nums) {
     int n = nums.size();
     // vector<int> lis;
